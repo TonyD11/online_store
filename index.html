@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mystry Drip — Clothing Store</title>
+<title>LUXE DRIP — Fashion Store</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Rajdhani:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -1409,7 +1409,7 @@
       <span class="logo-letter" id="logoLetter">L</span>
     </div>
     <div>
-      <span class="brand-name" id="brandName">Mystry - DRIP</span>
+      <span class="brand-name" id="brandName">LUXE DRIP</span>
       <span class="brand-tagline">Premium Fashion</span>
     </div>
   </a>
@@ -1424,7 +1424,7 @@
   </ul>
 
   <div class="nav-actions">
-    <button class="cart-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+    <button class="cart-btn" onclick="openCartWhatsApp()">
       🛒 Cart <span class="cart-count" id="cartCount">0</span>
     </button>
     <button class="hamburger" id="hamburger" onclick="openMobileMenu()">
@@ -1596,7 +1596,7 @@
   <div class="products-grid" id="productsGrid" style="grid-template-columns: repeat(3,1fr);">
 
     <!-- BOYS T-SHIRT -->
-    <div class="product-card" data-category="boys all">
+    <div class="product-card" data-category="boys all" data-name="Boys Premium T-Shirt" data-price="2499">
       <div class="product-img">
         <span class="product-badge badge-sale">−22%</span>
         <button class="product-wishlist">♡</button>
@@ -1606,14 +1606,14 @@
           </svg>
           <span>Boys T-Shirt</span>
         </div>
-        <button class="product-quick-add" onclick="addToCart('Boys Premium T-Shirt', 2499)">+ Add to Cart</button>
+        <button class="product-quick-add" onclick="openSizePicker(this, 'Boys Premium T-Shirt', 2499)">Select Size & Add →</button>
       </div>
       <div class="product-info">
         <div class="product-category-tag">Boys</div>
         <div class="product-name">Boys Premium T-Shirt</div>
         <div class="product-price-row">
-          <span class="product-price">Rs. 2,499</span>
-          <span class="product-old-price">Rs. 3,199</span>
+          <span class="product-price" data-price-display>Rs. 2,499</span>
+          <span class="product-old-price" data-old-price-display>Rs. 3,199</span>
         </div>
         <div style="margin-top:8px; font-family:'Rajdhani',sans-serif; font-size:11px; color:var(--gold); letter-spacing:1px;">Available Sizes</div>
         <div class="product-sizes">
@@ -1623,7 +1623,7 @@
     </div>
 
     <!-- GIRLS BLOUSE -->
-    <div class="product-card" data-category="girls all">
+    <div class="product-card" data-category="girls all" data-name="Girls Premium Blouse" data-price="2499">
       <div class="product-img">
         <span class="product-badge badge-sale">−22%</span>
         <button class="product-wishlist">♡</button>
@@ -1634,14 +1634,14 @@
           </svg>
           <span>Girls Blouse</span>
         </div>
-        <button class="product-quick-add" onclick="addToCart('Girls Premium Blouse', 2499)">+ Add to Cart</button>
+        <button class="product-quick-add" onclick="openSizePicker(this, 'Girls Premium Blouse', 2499)">Select Size & Add →</button>
       </div>
       <div class="product-info">
         <div class="product-category-tag">Girls</div>
         <div class="product-name">Girls Premium Blouse</div>
         <div class="product-price-row">
-          <span class="product-price">Rs. 2,499</span>
-          <span class="product-old-price">Rs. 3,199</span>
+          <span class="product-price" data-price-display>Rs. 2,499</span>
+          <span class="product-old-price" data-old-price-display>Rs. 3,199</span>
         </div>
         <div style="margin-top:8px; font-family:'Rajdhani',sans-serif; font-size:11px; color:var(--gold); letter-spacing:1px;">Available Sizes</div>
         <div class="product-sizes">
@@ -1651,7 +1651,7 @@
     </div>
 
     <!-- GIRLS T-SHIRT -->
-    <div class="product-card" data-category="girls all">
+    <div class="product-card" data-category="girls all" data-name="Girls Premium T-Shirt" data-price="2499">
       <div class="product-img">
         <span class="product-badge badge-sale">−22%</span>
         <button class="product-wishlist">♡</button>
@@ -1662,14 +1662,14 @@
           </svg>
           <span>Girls T-Shirt</span>
         </div>
-        <button class="product-quick-add" onclick="addToCart('Girls Premium T-Shirt', 2499)">+ Add to Cart</button>
+        <button class="product-quick-add" onclick="openSizePicker(this, 'Girls Premium T-Shirt', 2499)">Select Size & Add →</button>
       </div>
       <div class="product-info">
         <div class="product-category-tag">Girls</div>
         <div class="product-name">Girls Premium T-Shirt</div>
         <div class="product-price-row">
-          <span class="product-price">Rs. 2,499</span>
-          <span class="product-old-price">Rs. 3,199</span>
+          <span class="product-price" data-price-display>Rs. 2,499</span>
+          <span class="product-old-price" data-old-price-display>Rs. 3,199</span>
         </div>
         <div style="margin-top:8px; font-family:'Rajdhani',sans-serif; font-size:11px; color:var(--gold); letter-spacing:1px;">Available Sizes</div>
         <div class="product-sizes">
@@ -1854,47 +1854,17 @@
     <!-- FORM -->
     <div class="order-form-side">
       <div id="orderFormWrap">
+        <div style="background:var(--bg3); border:1px solid #1a1a1a; border-left:3px solid var(--gold); padding:16px 20px; margin-bottom:24px; font-family:'Rajdhani',sans-serif; font-size:13px; color:var(--white2); letter-spacing:1px;">
+          📦 Add items from the shop above, then fill your details below to send the order to WhatsApp.
+        </div>
         <div class="form-group">
           <label class="form-label">Full Name</label>
           <input type="text" class="form-input" id="fname" placeholder="Your full name"/>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-input" id="femail" placeholder="email@example.com"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Phone</label>
-            <input type="tel" class="form-input" id="fphone" placeholder="+1 000 000 0000"/>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Delivery Address</label>
-          <input type="text" class="form-input" id="faddress" placeholder="Street address, city, country"/>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Product</label>
-            <select class="form-input form-select" id="fproduct">
-              <option value="">Select a product...</option>
-              <option value="Boys Premium T-Shirt - Rs.2499">Boys Premium T-Shirt – Rs. 2,499</option>
-              <option value="Girls Premium Blouse - Rs.2499">Girls Premium Blouse – Rs. 2,499</option>
-              <option value="Girls Premium T-Shirt - Rs.2499">Girls Premium T-Shirt – Rs. 2,499</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Size</label>
-            <select class="form-input form-select" id="fsize">
-              <option value="">Select size...</option>
-              <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
-              <option>28</option><option>30</option><option>32</option><option>34</option><option>36</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Color Preference</label>
-            <input type="text" class="form-input" id="fcolor" placeholder="e.g. Black, Red, Navy"/>
+            <label class="form-label">Phone / WhatsApp</label>
+            <input type="tel" class="form-input" id="fphone" placeholder="07X XXX XXXX"/>
           </div>
           <div class="form-group">
             <label class="form-label">Quantity</label>
@@ -1902,7 +1872,11 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Shipping Method</label>
+          <label class="form-label">Delivery Address</label>
+          <input type="text" class="form-input" id="faddress" placeholder="Street address, city"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Delivery Zone</label>
           <select class="form-input form-select" id="fshipping">
             <option value="colombo">Colombo City – Rs. 300</option>
             <option value="othercities">Other Cities (Kandy, Galle, Negombo…) – Rs. 500</option>
@@ -1912,7 +1886,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">Special Notes</label>
-          <textarea class="form-input form-textarea" id="fnotes" placeholder="Any special requests, gift wrapping, etc..."></textarea>
+          <textarea class="form-input form-textarea" id="fnotes" placeholder="Any special requests..."></textarea>
         </div>
         <button class="btn-primary" style="width:100%;text-align:center;padding:18px;" onclick="placeOrder()">
           📲 Send Order via WhatsApp →
@@ -1968,34 +1942,142 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials-section">
-  <div class="section-label">What Customers Say</div>
-  <h2 class="section-title">Loved by <em>Thousands</em></h2>
-  <div class="testimonials-grid">
+<!-- REVIEWS SECTION -->
+<section class="testimonials-section" id="reviews">
+  <div class="section-label">Real Customers</div>
+  <h2 class="section-title">Customer <em>Reviews</em></h2>
+
+  <!-- REVIEWS DISPLAY -->
+  <div class="testimonials-grid" id="reviewsGrid">
+    <!-- Static starter reviews -->
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
-      <p class="testimonial-text">Absolutely stunning quality. The dress I ordered exceeded every expectation — the fabric, the cut, the packaging. Will definitely be ordering again.</p>
+      <p class="testimonial-text">Really good quality! The Boys T-Shirt is super soft and fits perfectly. Ordered size L and it was exactly right. Fast delivery to Kandy too!</p>
       <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-author">Sophia R.</div>
-      <div class="testimonial-location">New York, USA</div>
+      <div class="testimonial-author">Kasun P.</div>
+      <div class="testimonial-location">Kandy, Sri Lanka</div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
-      <p class="testimonial-text">Fast shipping, beautiful clothes, and the customer service was incredible. Found my go-to fashion store. The blazer fits perfectly!</p>
+      <p class="testimonial-text">Ordered the Girls Blouse for my daughter. Beautiful stitching and the material is lovely. Will definitely order again. Highly recommend!</p>
       <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-author">Marcus T.</div>
-      <div class="testimonial-location">London, UK</div>
+      <div class="testimonial-author">Dilini S.</div>
+      <div class="testimonial-location">Colombo, Sri Lanka</div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-quote">"</div>
-      <p class="testimonial-text">I ordered the maxi dress for a wedding and received so many compliments. High-end look at a fair price. This brand is something special.</p>
+      <p class="testimonial-text">Placed a bulk order for our company uniforms with embroidery. The team handled everything professionally. Everyone loves how the shirts look!</p>
       <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-author">Amara K.</div>
-      <div class="testimonial-location">Dubai, UAE</div>
+      <div class="testimonial-author">Rajan M.</div>
+      <div class="testimonial-location">Galle, Sri Lanka</div>
+    </div>
+  </div>
+
+  <!-- SUBMIT A REVIEW -->
+  <div style="max-width:640px; margin:60px auto 0; background:var(--bg3); border:1px solid #1a1a1a; padding:40px;">
+    <div style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:400; color:var(--white); margin-bottom:6px;">Leave a Review</div>
+    <div style="font-family:'Rajdhani',sans-serif; font-size:11px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:28px;">Share your experience</div>
+
+    <div id="reviewFormWrap">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" id="rname" placeholder="e.g. Kasun P."/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">City</label>
+          <input type="text" class="form-input" id="rcity" placeholder="e.g. Colombo"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Rating</label>
+        <div id="starPicker" style="display:flex; gap:8px; margin-bottom:4px;">
+          <span class="star-pick" data-val="1" onclick="setStars(1)" style="font-size:28px; cursor:pointer; color:#3a3a3a;">★</span>
+          <span class="star-pick" data-val="2" onclick="setStars(2)" style="font-size:28px; cursor:pointer; color:#3a3a3a;">★</span>
+          <span class="star-pick" data-val="3" onclick="setStars(3)" style="font-size:28px; cursor:pointer; color:#3a3a3a;">★</span>
+          <span class="star-pick" data-val="4" onclick="setStars(4)" style="font-size:28px; cursor:pointer; color:#3a3a3a;">★</span>
+          <span class="star-pick" data-val="5" onclick="setStars(5)" style="font-size:28px; cursor:pointer; color:#3a3a3a;">★</span>
+        </div>
+        <input type="hidden" id="rrating" value="0"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Review</label>
+        <textarea class="form-input form-textarea" id="rtext" placeholder="Tell others about the quality, size, delivery..."></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%; text-align:center; padding:16px;" onclick="submitReview()">
+        Submit Review ✦
+      </button>
+    </div>
+
+    <div id="reviewSuccess" style="display:none; text-align:center; padding:30px 0;">
+      <div style="font-size:36px; margin-bottom:12px;">✦</div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:26px; color:var(--gold); margin-bottom:8px;">Thank you!</div>
+      <p style="font-size:14px; color:var(--white2);">Your review has been added.</p>
+      <button class="btn-outline" style="margin-top:20px;" onclick="resetReview()">Write Another</button>
     </div>
   </div>
 </section>
+
+<!-- ADMIN PRICE PANEL (hidden, access via secret button) -->
+<div id="adminPanel" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:99998; overflow-y:auto; padding:40px 20px;">
+  <div style="max-width:500px; margin:0 auto; background:var(--bg3); border:1px solid var(--gold-dim); padding:40px;">
+    <div style="font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--gold); margin-bottom:6px;">Admin Panel</div>
+    <div style="font-family:'Rajdhani',sans-serif; font-size:11px; letter-spacing:3px; color:var(--white2); text-transform:uppercase; margin-bottom:30px;">Update Product Prices</div>
+
+    <div id="adminLoginWrap">
+      <div class="form-group">
+        <label class="form-label">Admin Password</label>
+        <input type="password" class="form-input" id="adminPass" placeholder="Enter password"/>
+      </div>
+      <button class="btn-primary" style="width:100%; text-align:center; padding:14px;" onclick="adminLogin()">Login</button>
+    </div>
+
+    <div id="adminPriceWrap" style="display:none;">
+      <div style="font-family:'Rajdhani',sans-serif; font-size:11px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:20px;">Edit Prices (Rs.)</div>
+
+      <div class="form-group">
+        <label class="form-label">Boys Premium T-Shirt — Sale Price</label>
+        <input type="number" class="form-input" id="price_boys_sale" placeholder="e.g. 2499"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Boys Premium T-Shirt — Original Price</label>
+        <input type="number" class="form-input" id="price_boys_orig" placeholder="e.g. 3199"/>
+      </div>
+
+      <div style="height:1px; background:#1a1a1a; margin:16px 0;"></div>
+
+      <div class="form-group">
+        <label class="form-label">Girls Premium Blouse — Sale Price</label>
+        <input type="number" class="form-input" id="price_blouse_sale" placeholder="e.g. 2499"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Girls Premium Blouse — Original Price</label>
+        <input type="number" class="form-input" id="price_blouse_orig" placeholder="e.g. 3199"/>
+      </div>
+
+      <div style="height:1px; background:#1a1a1a; margin:16px 0;"></div>
+
+      <div class="form-group">
+        <label class="form-label">Girls Premium T-Shirt — Sale Price</label>
+        <input type="number" class="form-input" id="price_girls_sale" placeholder="e.g. 2499"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Girls Premium T-Shirt — Original Price</label>
+        <input type="number" class="form-input" id="price_girls_orig" placeholder="e.g. 3199"/>
+      </div>
+
+      <button class="btn-primary" style="width:100%; text-align:center; padding:14px; margin-top:8px;" onclick="applyPrices()">
+        ✓ Apply Prices to Website
+      </button>
+      <div id="priceSuccess" style="display:none; margin-top:16px; font-family:'Rajdhani',sans-serif; font-size:13px; color:var(--gold); letter-spacing:2px; text-align:center;">✦ PRICES UPDATED SUCCESSFULLY</div>
+    </div>
+
+    <button onclick="document.getElementById('adminPanel').style.display='none'" style="width:100%; background:none; border:1px solid #2a2a2a; color:var(--white2); padding:12px; font-family:'Rajdhani',sans-serif; font-size:12px; letter-spacing:2px; cursor:pointer; margin-top:16px; text-transform:uppercase;">Close Panel</button>
+  </div>
+</div>
+
+<!-- SECRET ADMIN ACCESS — tiny link in footer -->
+
 
 <!-- INSTAGRAM SECTION -->
 <section class="instagram-section">
@@ -2041,7 +2123,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <span class="brand-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--white);letter-spacing:3px;">Mystry - DRIP </span>
+      <span class="brand-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--white);letter-spacing:3px;">LUXE DRIP</span>
       <p class="footer-desc">Curated fashion for those who believe style is a form of self-expression. Premium clothing delivered with care.</p>
       <div class="social-links" style="justify-content:flex-start;">
         <a href="https://facebook.com" target="_blank" class="social-link social-fb" style="padding:10px 16px;font-size:11px;">
@@ -2091,45 +2173,41 @@
   </div>
 
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Mystry DRIP. All rights reserved. 🇱🇰 Sri Lanka</span>
+    <span class="footer-copy">© 2025 LUXE DRIP. All rights reserved. 🇱🇰 Sri Lanka</span>
     <div class="footer-legal">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Service</a>
-      <a href="#">Cookie Policy</a>
+      <a href="#" onclick="document.getElementById('adminPanel').style.display='block'; return false;" style="color:#1a1a1a; font-size:10px;">⚙</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // CURSOR
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+  // ─── CONFIG ───────────────────────────────────────────
+  const WA_NUMBER   = '94XXXXXXXXX'; // ← replace with your number e.g. 94771234567
+  const ADMIN_PASS  = 'admin123';    // ← change this to your own password
 
+  // ─── CURSOR ───────────────────────────────────────────
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
   document.addEventListener('mousemove', e => {
     mouseX = e.clientX; mouseY = e.clientY;
-    cursor.style.transform = `translate(${mouseX - 6}px, ${mouseY - 6}px)`;
+    cursor.style.transform = `translate(${mouseX-6}px,${mouseY-6}px)`;
   });
-
   function animateRing() {
     ringX += (mouseX - ringX - 18) * 0.12;
     ringY += (mouseY - ringY - 18) * 0.12;
-    ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+    ring.style.transform = `translate(${ringX}px,${ringY}px)`;
     requestAnimationFrame(animateRing);
   }
   animateRing();
 
-  // MOBILE MENU
-  function openMobileMenu() {
-    document.getElementById('mobileMenu').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMobileMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  // ─── MOBILE MENU ─────────────────────────────────────
+  function openMobileMenu()  { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
 
-  // PRODUCT FILTER
+  // ─── PRODUCT FILTER ───────────────────────────────────
   function setFilter(btn, category) {
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
@@ -2137,86 +2215,156 @@
   }
   function filterProducts(cat) {
     document.querySelectorAll('.product-card').forEach(card => {
-      if (cat === 'all' || card.dataset.category.includes(cat)) {
-        card.style.display = '';
-        card.style.animation = 'fadeUp 0.5s ease both';
-      } else {
-        card.style.display = 'none';
-      }
+      const show = cat === 'all' || card.dataset.category.includes(cat);
+      card.style.display = show ? '' : 'none';
+      if (show) card.style.animation = 'fadeUp 0.5s ease both';
     });
   }
 
-  // CART
+  // ─── SIZE PICKER POPUP ────────────────────────────────
+  let pendingProduct = null;
+
+  function openSizePicker(btn, name, price) {
+    pendingProduct = { name, price };
+    // Remove any existing popup
+    const old = document.getElementById('sizePopup');
+    if (old) old.remove();
+
+    const popup = document.createElement('div');
+    popup.id = 'sizePopup';
+    popup.style.cssText = `
+      position:fixed; inset:0; background:rgba(0,0,0,0.85);
+      z-index:99997; display:flex; align-items:center; justify-content:center; padding:20px;
+    `;
+    popup.innerHTML = `
+      <div style="background:var(--bg3); border:1px solid var(--gold-dim); padding:36px; max-width:380px; width:100%; text-align:center; position:relative;">
+        <button onclick="document.getElementById('sizePopup').remove()" style="position:absolute;top:14px;right:18px;background:none;border:none;color:var(--white2);font-size:20px;cursor:pointer;">✕</button>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">Select Size</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);margin-bottom:24px;">${name}</div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;">
+          ${['S','M','L','XL','2XL'].map(s => `
+            <button onclick="confirmAddToCart('${s}')" style="
+              width:52px;height:52px;border:1px solid #2a2a2a;background:var(--bg);
+              color:var(--white);font-family:'Rajdhani',sans-serif;font-size:14px;
+              font-weight:600;cursor:pointer;letter-spacing:1px;
+              transition:all 0.2s;
+            " onmouseover="this.style.background='var(--gold)';this.style.color='#000';this.style.borderColor='var(--gold)'"
+               onmouseout="this.style.background='var(--bg)';this.style.color='var(--white)';this.style.borderColor='#2a2a2a'">${s}</button>
+          `).join('')}
+        </div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--gold-dim);letter-spacing:2px;">Rs. 2,499 per piece</div>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    popup.addEventListener('click', e => { if (e.target === popup) popup.remove(); });
+  }
+
+  function confirmAddToCart(size) {
+    if (!pendingProduct) return;
+    addToCart(pendingProduct.name, pendingProduct.price, size);
+    document.getElementById('sizePopup').remove();
+    pendingProduct = null;
+  }
+
+  // ─── CART ─────────────────────────────────────────────
   let cartItems = [];
   let cartTotal = 0;
 
-  function addToCart(name, price) {
-    cartItems.push({ name, price });
+  function addToCart(name, price, size) {
+    cartItems.push({ name, price, size });
     cartTotal += price;
-    updateCartUI();
     document.getElementById('cartCount').textContent = cartItems.length;
-    showToast(`${name} added to cart!`);
+    updateCartUI();
+    showToast(`✓ ${name} (${size}) added to cart!`);
+  }
+
+  function removeFromCart(index) {
+    cartTotal -= cartItems[index].price;
+    cartItems.splice(index, 1);
+    document.getElementById('cartCount').textContent = cartItems.length;
+    updateCartUI();
   }
 
   function updateCartUI() {
     const container = document.getElementById('cartItems');
     if (cartItems.length === 0) {
-      container.innerHTML = '<div class="order-item"><span class="order-item-name">No items yet</span><span class="order-item-price">—</span></div>';
+      container.innerHTML = '<div class="order-item"><span class="order-item-name">No items yet — add from shop above</span><span class="order-item-price">—</span></div>';
     } else {
-      container.innerHTML = cartItems.map(item =>
-        `<div class="order-item"><span class="order-item-name">${item.name}</span><span class="order-item-price">Rs. ${item.price.toLocaleString()}</span></div>`
-      ).join('');
+      container.innerHTML = cartItems.map((item, i) => `
+        <div class="order-item">
+          <span class="order-item-name">${item.name} <span style="color:var(--gold);font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:1px;">[${item.size}]</span></span>
+          <span style="display:flex;align-items:center;gap:10px;">
+            <span class="order-item-price">Rs. ${item.price.toLocaleString()}</span>
+            <button onclick="removeFromCart(${i})" style="background:none;border:none;color:#555;cursor:pointer;font-size:14px;" title="Remove">✕</button>
+          </span>
+        </div>
+      `).join('');
     }
     document.getElementById('orderTotal').textContent = `Rs. ${cartTotal.toLocaleString()}`;
   }
 
-  // TOAST
-  function showToast(msg) {
-    const toast = document.createElement('div');
-    toast.style.cssText = `position:fixed;bottom:30px;right:30px;background:var(--gold);color:#000;padding:14px 24px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;z-index:9999;animation:fadeUp 0.4s ease both;border-radius:0;box-shadow:0 8px 30px rgba(201,168,76,0.3);`;
-    toast.textContent = msg;
-    document.body.appendChild(toast);
-    setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 2800);
+  // Cart button → open WhatsApp directly if items in cart, else scroll to shop
+  function openCartWhatsApp() {
+    if (cartItems.length === 0) {
+      document.getElementById('products').scrollIntoView({behavior:'smooth'});
+      showToast('👆 Select items from the shop first!');
+      return;
+    }
+    document.getElementById('order').scrollIntoView({behavior:'smooth'});
   }
 
-  // ⚙️ REPLACE THIS WITH YOUR WHATSAPP NUMBER (country code + number, no + or spaces)
-  const WA_NUMBER = '94XXXXXXXXX'; // e.g. 94771234567
+  // ─── TOAST ────────────────────────────────────────────
+  function showToast(msg) {
+    // Remove existing toasts
+    document.querySelectorAll('.luxe-toast').forEach(t => t.remove());
+    const toast = document.createElement('div');
+    toast.className = 'luxe-toast';
+    toast.style.cssText = `position:fixed;bottom:100px;right:24px;background:var(--gold);color:#000;padding:14px 22px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;z-index:99996;box-shadow:0 8px 30px rgba(201,168,76,0.4);max-width:280px;line-height:1.4;`;
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.style.opacity='0'; toast.style.transition='opacity 0.4s'; setTimeout(()=>toast.remove(),400); }, 2800);
+  }
 
-  // ORDER FORM → WHATSAPP
+  // ─── PLACE ORDER → WHATSAPP ──────────────────────────
   function placeOrder() {
     const name     = document.getElementById('fname').value.trim();
     const phone    = document.getElementById('fphone').value.trim();
     const address  = document.getElementById('faddress').value.trim();
-    const product  = document.getElementById('fproduct').value;
-    const size     = document.getElementById('fsize').value;
-    const color    = document.getElementById('fcolor').value.trim();
     const qty      = document.getElementById('fqty').value || '1';
     const shipping = document.getElementById('fshipping');
     const shippingText = shipping.options[shipping.selectedIndex].text;
     const notes    = document.getElementById('fnotes').value.trim();
 
-    if (!name || !phone || !address || !product || !size) {
-      showToast('⚠ Please fill in Name, Phone, Address, Product and Size');
+    if (!name || !phone || !address) {
+      showToast('⚠ Please fill in Name, Phone and Address');
+      return;
+    }
+    if (cartItems.length === 0) {
+      showToast('⚠ Your cart is empty! Add items from the shop first.');
+      document.getElementById('products').scrollIntoView({behavior:'smooth'});
       return;
     }
 
-    const discountNote = '🏷️ Special Offer Price Applied (22% OFF — Rs. 3,199 → Rs. 2,499)';
+    const itemLines = cartItems.map(item =>
+      `   • ${item.name} (Size: ${item.size}) — Rs. ${item.price.toLocaleString()}`
+    ).join('\n');
 
     const msg = [
-      '🛍️ *NEW ORDER — Mystry DRIP*',
-      '─────────────────────',
+      '🛍️ *NEW ORDER — LUXE DRIP*',
+      '─────────────────────────',
       `👤 *Name:* ${name}`,
       `📞 *Phone:* ${phone}`,
       `📍 *Address:* ${address}`,
-      '─────────────────────',
-      `👕 *Product:* ${product}`,
-      `📐 *Size:* ${size}`,
-      color   ? `🎨 *Colour:* ${color}` : '',
-      `🔢 *Qty:* ${qty}`,
-      `🚚 *Shipping:* ${shippingText}`,
-      discountNote,
-      notes   ? `📝 *Notes:* ${notes}` : '',
-      '─────────────────────',
+      '─────────────────────────',
+      `🛒 *Items Ordered:*`,
+      itemLines,
+      '─────────────────────────',
+      `🔢 *Qty per item:* ${qty}`,
+      `🚚 *Delivery:* ${shippingText}`,
+      `💰 *Cart Total:* Rs. ${cartTotal.toLocaleString()}`,
+      `🏷️ *Offer:* 22% OFF (Rs. 3,199 → Rs. 2,499)`,
+      notes ? `📝 *Notes:* ${notes}` : '',
+      '─────────────────────────',
       '✅ Please confirm this order. Thank you!'
     ].filter(Boolean).join('\n');
 
@@ -2225,8 +2373,6 @@
     document.getElementById('orderFormWrap').style.display = 'none';
     document.getElementById('orderSuccess').classList.add('show');
     document.getElementById('waFallbackBtn').onclick = () => window.open(waURL, '_blank');
-
-    // Auto-open WhatsApp
     window.open(waURL, '_blank');
 
     cartItems = []; cartTotal = 0;
@@ -2237,62 +2383,175 @@
   function resetOrder() {
     document.getElementById('orderFormWrap').style.display = '';
     document.getElementById('orderSuccess').classList.remove('show');
-    ['fname','femail','fphone','faddress','fnotes','fcolor'].forEach(id => {
+    ['fname','fphone','faddress','fnotes'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.value = '';
     });
   }
 
-  // SHIPPING COST
+  // ─── SHIPPING COST DISPLAY ────────────────────────────
   document.getElementById('fshipping').addEventListener('change', function() {
-    const costs = { colombo: 'Rs. 300', othercities: 'Rs. 500', island: 'Rs. 700', express: 'Rs. 950' };
+    const costs = { colombo:'Rs. 300', othercities:'Rs. 500', island:'Rs. 700', express:'Rs. 950' };
     document.getElementById('shippingCost').textContent = costs[this.value] || 'Rs. 300';
   });
 
-  // COUNTDOWN TIMER
+  // ─── COUNTDOWN TIMER ──────────────────────────────────
   const endDate = new Date();
   endDate.setDate(endDate.getDate() + 5);
   endDate.setHours(endDate.getHours() + 14);
-
   function updateCountdown() {
-    const now = new Date();
-    const diff = endDate - now;
+    const diff = endDate - new Date();
     if (diff <= 0) return;
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('days').textContent = String(d).padStart(2,'0');
-    document.getElementById('hours').textContent = String(h).padStart(2,'0');
+    const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000),
+          m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
+    document.getElementById('days').textContent    = String(d).padStart(2,'0');
+    document.getElementById('hours').textContent   = String(h).padStart(2,'0');
     document.getElementById('minutes').textContent = String(m).padStart(2,'0');
     document.getElementById('seconds').textContent = String(s).padStart(2,'0');
   }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  updateCountdown(); setInterval(updateCountdown, 1000);
 
+  // ─── BULK FORM ────────────────────────────────────────
   function submitBulk() {
     const company = document.getElementById('bcompany').value.trim();
-    const name = document.getElementById('bname').value.trim();
-    const phone = document.getElementById('bphone').value.trim();
-    const type = document.getElementById('btype').value;
-    const qty = document.getElementById('bqty').value;
-    if (!company || !name || !phone || !type || !qty) {
-      showToast('⚠ Please fill in all required fields');
-      return;
-    }
+    const name    = document.getElementById('bname').value.trim();
+    const phone   = document.getElementById('bphone').value.trim();
+    const type    = document.getElementById('btype').value;
+    const qty     = document.getElementById('bqty').value;
+    if (!company || !name || !phone || !type || !qty) { showToast('⚠ Please fill in all required fields'); return; }
+
+    const sizes   = document.getElementById('bsizes').value.trim();
+    const emb     = document.getElementById('bemb').value.trim();
+    const loc     = document.getElementById('blocation').value.trim();
+    const email   = document.getElementById('bemail').value.trim();
+
+    const msg = [
+      '📦 *BULK ORDER ENQUIRY — LUXE DRIP*',
+      '─────────────────────────────────',
+      `🏢 *Company:* ${company}`,
+      `👤 *Contact:* ${name}`,
+      `📞 *Phone:* ${phone}`,
+      email ? `📧 *Email:* ${email}` : '',
+      '─────────────────────────────────',
+      `👕 *Garment Type:* ${type}`,
+      `🔢 *Total Quantity:* ${qty}`,
+      sizes ? `📐 *Size Breakdown:* ${sizes}` : '',
+      emb   ? `🧵 *Embroidery:* ${emb}` : '',
+      loc   ? `📍 *Delivery Location:* ${loc}` : '',
+      '─────────────────────────────────',
+      '✅ Please send us a quote. Thank you!'
+    ].filter(Boolean).join('\n');
+
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     document.getElementById('bulkFormWrap').style.display = 'none';
-    document.getElementById('bulkSuccess').style.display = 'block';
+    document.getElementById('bulkSuccess').style.display  = 'block';
   }
 
   function resetBulk() {
     document.getElementById('bulkFormWrap').style.display = '';
-    document.getElementById('bulkSuccess').style.display = 'none';
+    document.getElementById('bulkSuccess').style.display  = 'none';
     ['bcompany','bname','bphone','bemail','bqty','bsizes','bemb','blocation'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.value = '';
+      const el = document.getElementById(id); if (el) el.value = '';
     });
     document.getElementById('btype').value = '';
   }
+
+  // ─── CUSTOMER REVIEWS ─────────────────────────────────
+  let selectedStars = 0;
+
+  function setStars(val) {
+    selectedStars = val;
+    document.getElementById('rrating').value = val;
+    document.querySelectorAll('.star-pick').forEach(s => {
+      s.style.color = parseInt(s.dataset.val) <= val ? 'var(--gold)' : '#3a3a3a';
+    });
+  }
+
+  function submitReview() {
+    const name   = document.getElementById('rname').value.trim();
+    const city   = document.getElementById('rcity').value.trim();
+    const text   = document.getElementById('rtext').value.trim();
+    const rating = selectedStars;
+
+    if (!name || !text || rating === 0) {
+      showToast('⚠ Please fill your name, review and select a rating');
+      return;
+    }
+
+    const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+    const card = document.createElement('div');
+    card.className = 'testimonial-card';
+    card.style.animation = 'fadeUp 0.5s ease both';
+    card.innerHTML = `
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">${text}</p>
+      <div class="testimonial-stars" style="color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:14px;">${stars}</div>
+      <div class="testimonial-author">${name}</div>
+      <div class="testimonial-location">${city ? city + ', Sri Lanka' : 'Sri Lanka'}</div>
+    `;
+    document.getElementById('reviewsGrid').appendChild(card);
+
+    document.getElementById('reviewFormWrap').style.display = 'none';
+    document.getElementById('reviewSuccess').style.display  = 'block';
+  }
+
+  function resetReview() {
+    document.getElementById('reviewFormWrap').style.display = '';
+    document.getElementById('reviewSuccess').style.display  = 'none';
+    ['rname','rcity','rtext'].forEach(id => document.getElementById(id).value = '');
+    setStars(0);
+  }
+
+  // ─── ADMIN PRICE PANEL ────────────────────────────────
+  function adminLogin() {
+    const pass = document.getElementById('adminPass').value;
+    if (pass === ADMIN_PASS) {
+      document.getElementById('adminLoginWrap').style.display = 'none';
+      document.getElementById('adminPriceWrap').style.display = 'block';
+    } else {
+      showToast('⚠ Incorrect password');
+    }
+  }
+
+  function applyPrices() {
+    const fields = [
+      { sale: 'price_boys_sale',   orig: 'price_boys_orig',   idx: 0 },
+      { sale: 'price_blouse_sale', orig: 'price_blouse_orig', idx: 1 },
+      { sale: 'price_girls_sale',  orig: 'price_girls_orig',  idx: 2 },
+    ];
+
+    const cards = document.querySelectorAll('.product-card');
+
+    fields.forEach(f => {
+      const saleVal = parseInt(document.getElementById(f.sale).value);
+      const origVal = parseInt(document.getElementById(f.orig).value);
+      const card    = cards[f.idx];
+      if (!card) return;
+
+      if (saleVal > 0) {
+        // Update visible price
+        const priceEl = card.querySelector('[data-price-display]');
+        if (priceEl) priceEl.textContent = `Rs. ${saleVal.toLocaleString()}`;
+
+        // Update add-to-cart button
+        const quickAdd = card.querySelector('.product-quick-add');
+        const pname    = card.dataset.name;
+        if (quickAdd) quickAdd.setAttribute('onclick', `openSizePicker(this,'${pname}',${saleVal})`);
+
+        // Update data-price
+        card.dataset.price = saleVal;
+      }
+      if (origVal > 0) {
+        const oldEl = card.querySelector('[data-old-price-display]');
+        if (oldEl) oldEl.textContent = `Rs. ${origVal.toLocaleString()}`;
+      }
+    });
+
+    document.getElementById('priceSuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('adminPanel').style.display = 'none', 1800);
+  }
+
+  // ─── WISHLIST ─────────────────────────────────────────
   document.querySelectorAll('.product-wishlist').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
@@ -2303,26 +2562,44 @@
 </script>
 <!-- FLOATING WHATSAPP BUTTON -->
 <a href="https://wa.me/94XXXXXXXXX" target="_blank" id="waFloat" style="
-  position:fixed; bottom:28px; right:28px; z-index:9990;
-  width:60px; height:60px; border-radius:50%;
-  background:#25D366; color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  z-index:99999;
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
   text-decoration:none;
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: wapulse 2.5s infinite;
-" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.522 5.847L0 24l6.332-1.5A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.655-.497-5.19-1.367l-.371-.22-3.762.892.946-3.668-.241-.385A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  cursor:pointer;
+">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.522 5.847L0 24l6.332-1.5A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.472 16.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
   </svg>
 </a>
 
 <style>
-@keyframes wapulse {
-  0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
-  50% { box-shadow: 0 6px 36px rgba(37,211,102,0.7), 0 0 0 10px rgba(37,211,102,0.1); }
-}
+  #waFloat { animation: wapulse 2.5s infinite; }
+  @keyframes wapulse {
+    0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 12px rgba(37,211,102,0.12); }
+  }
+  /* Make sure cursor:none doesn't block the button on mobile */
+  @media (max-width: 900px) {
+    body { cursor: auto !important; }
+    #cursor, #cursorRing { display: none !important; }
+    #waFloat {
+      bottom: 20px !important;
+      right: 20px !important;
+      width: 58px !important;
+      height: 58px !important;
+    }
+  }
 </style>
 
 </body>
